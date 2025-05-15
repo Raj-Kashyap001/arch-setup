@@ -1,0 +1,158 @@
+# Dunst Configuration - Adwaita Dark Theme
+# Styled for Hyprland with bottom-right positioning
+
+[global]
+    ### Display ###
+    monitor = 0
+    follow = none
+
+    ### Geometry ###
+    # Width of notification window
+    width = 300
+    
+    # Height of notification window (dynamic)
+    height = (0, 300)
+    
+    # Position in bottom right corner
+    origin = bottom-right
+    
+    # Offset from the origin (right padding of 4px, up 20px for bar)
+    offset = (, 10)
+    
+    # Scale factor (auto-detected)
+    scale = 0
+    
+    # Maximum number of notifications
+    notification_limit = 5
+
+    ### Progress bar ###
+    progress_bar = true
+    progress_bar_height = 8
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 6
+    progress_bar_corners = all
+
+    ### Styling ###
+    # Icon corner radius
+    icon_corner_radius = 6
+    icon_corners = all
+    
+    # Show indicator for hidden notifications
+    indicate_hidden = yes
+    
+    # Transparency (0-100)
+    transparency = 5
+    
+    # Separator height
+    separator_height = 2
+    
+    # Padding
+    padding = 12
+    horizontal_padding = 16
+    text_icon_padding = 12
+    
+    # Frame
+    frame_width = 2
+    frame_color = "#1c1f26"
+    gap_size = 6
+    separator_color = frame
+    
+    # Sorting
+    sort = yes
+
+    ### Text ###
+    font = "Cantarell 11"
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    
+    # Text alignment
+    alignment = left
+    vertical_alignment = center
+    
+    # Show age threshold
+    show_age_threshold = 60
+    
+    # Text handling
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = no
+
+    ### Icons ###
+    enable_recursive_icon_lookup = true
+    icon_theme = "Papirus-Dark"
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+    
+    # Icon paths (fallback)
+    icon_path = /home/raj/.icons/Papirus-Dark/16x16/status/:/home/raj/.icons/Papirus-Dark/16x16/devices/:/home/raj/.icons/Papirus-Dark/16x16/symbolic/status/
+
+    ### History ###
+    sticky_history = yes
+    history_length = 20
+
+    ### Misc/Advanced ###
+    dmenu = /usr/bin/rofi -dmenu -p dunst:
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    
+    # Corner radius
+    corner_radius = 8
+    corners = all
+    
+    # Other settings
+    ignore_dbusclose = false
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = context
+
+### Colors based on Tokyo Night theme ###
+
+[urgency_low]
+    background = "#1a1b26"
+    foreground = "#a9b1d6"
+    frame_color = "#414868"
+    timeout = 5
+    default_icon = dialog-information-symbolic
+
+[urgency_normal]
+    background = "#24283b"
+    foreground = "#c0caf5"
+    frame_color = "#7aa2f7"
+    timeout = 8
+    default_icon = dialog-information-symbolic
+
+[urgency_critical]
+    background = "#3b1f1f"
+    foreground = "#f7768e"
+    frame_color = "#db4b4b"
+    timeout = 0
+    default_icon = dialog-warning-symbolic
+
+# Rules for specific applications
+
+[spotify]
+    desktop_entry = "Spotify"
+    background = "#1c1f26"
+    frame_color = "#1DB954"
+
+[volume]
+    appname = "volume"
+    set_stack_tag = "volume"
+    format = "<b>Volume</b>\n%b"
+
+[brightness]
+    appname = "brightness"
+    set_stack_tag = "brightness"
+    format = "<b>Brightness</b>\n%b"
+
+[battery-low]
+    category = "battery"
+    urgency = critical
