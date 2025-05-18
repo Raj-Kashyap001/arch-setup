@@ -20,8 +20,9 @@ apps="wget git fish tmux kitty fzf zoxide ripgrep fastfetch kitty mission-center
 	rofi-wayland thunar alsa-utils font-manager swww hyprland krita grim dunst fastfetch obs-studio hyprpolkitagent wl-color-picker nwg-clipman nwg-look ttf-jetbrains-mono-nerd"
 
 apps_aur="visual-studio-code-bin localsend-bin google-chrome \
-          ocs-url normcap\
-          waypaper
+          ocs-url normcap \
+          waypaper \
+          wlogout 
           "
 
 if command -v yay >/dev/null 2>&1; then
