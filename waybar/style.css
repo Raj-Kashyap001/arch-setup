@@ -1,6 +1,10 @@
-@define-color foreground #eeeeee;
-@define-color foreground-inactive #aaaaaa;
-@define-color background rgba(0,0,0,0.5);
+@define-color foreground #e8eaed;
+@define-color foreground-inactive #9aa0a6;
+@define-color background transparent;
+@define-color module-background #292a2d;
+@define-color accent #8ab4f8;
+@define-color hover-background #35363a;
+@define-color active-background #3c4043;
 
 * {
   font-family: JetBrainsMono Nerd Font;
@@ -8,33 +12,114 @@
   font-weight: bold;
   padding: 0;
   margin: 0;
+  border-radius: 24px;
 }
 
 #waybar {
   color: @foreground;
   background-color: @background;
+  padding: 2px 8px;
 }
 
+/* Left modules */
+#custom-app_launcher,
+#workspaces,
+#window {
+  background-color: @module-background;
+  margin: 2px 3px;
+  /* padding: 0 12px; */
+}
+
+#custom-app_launcher {
+  color: @foreground;
+  font-size: 16px;
+  padding: 0 12px;
+}
+
+/* Workspaces module */
 #workspaces button {
   color: @foreground;
-  padding-left: 0.7em;
+  padding: 0 8px;
+  padding-left: 0;
+  border-radius: 18px;
+  margin: 2px;
+  transition: all 0.5s ease-in-out;
+}
+
+#workspaces button:hover {
+  background-color: @hover-background;
+}
+
+#workspaces button.active {
+  background-color: @active-background;
+  color: @foreground;
+  box-shadow: inset 0 -2px 2px @accent;
 }
 
 #workspaces button.empty {
   color: @foreground-inactive;
 }
 
-#memory,
-#temperature {
-  padding-left: 1em;
+/* Window title */
+#window {
+  padding: 0 12px;
+  padding-left: 2px;
+  margin-left: 2px;
 }
 
+/* Center modules */
+#clock {
+  background-color: @module-background;
+  padding: 0 16px;
+  margin: 2px 3px;
+  font-size: 15px;
+}
+
+/* Right modules */
+#memory,
+#cpu,
+#temperature,
 #wireplumber,
-#battery,
-#backlight,
 #language,
 #network,
 #bluetooth,
+#tray,
+#custom-power_menu {
+  background-color: @module-background;
+  margin: 2px 3px;
+  padding: 0 12px;
+}
+
+#wireplumber {
+  color: @foreground;
+}
+
+#cpu {
+  padding: 0 12px;
+}
+
+#memory {
+  padding: 0 12px;
+}
+
+#language {
+  padding: 0 10px;
+}
+
 #tray {
-  padding-right: 1em;
+  padding: 0 10px;
+}
+
+#custom-power_menu {
+  color: @foreground;
+  padding: 0px 10px;
+  padding-right: 13px;
+  /* margin: 0; */
+}
+
+/* Hover effects for clickable modules */
+#custom-app_launcher:hover,
+#wireplumber:hover,
+#custom-power_menu:hover {
+  background-color: @hover-background;
 }

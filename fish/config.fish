@@ -14,10 +14,11 @@ alias pacin 'sudo pacman -S --needed --noconfirm'
 alias pacrm 'sudo pacman -Rs '
 alias rm 'rm -rvf'
 alias cp 'cp -rvf'
-
+alias code '/usr/bin/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto --unity-launch'
 # Path
-fish_add_path /opt/idea-IU-251.25410.109/bin/
 fish_add_path /home/raj/.local/bin/
+fish_add_path /opt/idea-IU-251.25410.109/bin/
+fish_add_path /opt/WebStorm-251.25410.117/bin/
 
 # Editor
 set -x EDITOR nvim

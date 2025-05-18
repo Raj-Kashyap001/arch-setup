@@ -1,126 +1,146 @@
 {
-    "layer": "top",
-    "position": "bottom",
-    "height": 24,
-    "spacing": 3,
-
-    "modules-left": ["custom/app_launcher","hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["cpu","memory","wireplumber", "hyprland/language", "tray", "custom/power_menu"],
-
-    "hyprland/workspaces": {
-        "format": "<span size='larger'>{icon}</span>",
-        "on-click": "activate",
-        "format-icons": {
-            "active": "\uf444",
-            "default": "\uf4c3"
-        },
-        "icon-size": 10,
-        "sort-by-number": true,
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-        }
+  "layer": "top",
+  "position": "bottom",
+  "height": 24,
+  "spacing": 3,
+  "modules-left": [
+    "custom/app_launcher",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "wireplumber",
+    "hyprland/language",
+    "tray",
+    "custom/power_menu"
+  ],
+  "hyprland/workspaces": {
+    "format": "<span size='larger'>{icon}</span>",
+    "on-click": "activate",
+    "format-icons": {
+      "active": "",
+      "default": ""
     },
-
-    "clock": {
-      "format": "{:%I:%M %p}",
-      "format-alt": "{:%d-%m-%Y}",
-    },
-
-    "hyprland/window": {
-      "format": " {}",
-      "max-length": 20,
-      "rewrite": {
-        ".* - Mozilla Firefox": "  Firefox",
-        ".* - Visual Studio Code": "  VS Code"
-      }
-    },
-
-    "wireplumber": {
-        "format": "\udb81\udd7e {volume}%",
-        "max-volume": 100,
-        "scroll-step": 5,
-        "on-click": "pavucontrol"
-    },
-
-    "battery": {
-        "bat": "BAT1",
-        "interval": 60,
-        "format": "{icon}  {capacity}%",
-        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
-    },
-
-    "backlight": {
-        "format": "\udb80\udcdf  {percent}%"
-    },
-
-    "memory": {
-        "interval": 30,
-        "format": "\uf4bc {used:0.1f}GB "
-    },
-
-    "custom/app_launcher": {
-      "format": "  󰀻",
-      "on-click": "rofi -show drun -show-icons",
-      "tooltip": false
-    },
-  
-    "custom/power_menu": {
-      "format": "⏻   ",
-      "on-click": "wlogout",
-      "tooltip": false
-    },
-
-    "temperature": {
-        "format": "  {temperatureC}°C"
-    },
-
-    "cpu": {
-        "format": "\uF201 {usage}%",
-        "format-critical":  "<span color='#c20821'><b>\uF201 {usage}%</b></span>",
-        "format-high":      "<span color='#e03c52'>\uF201 {usage}%</span>",
-        "format-medium":    "<span color='#85c600'>\uF201 {usage}%</span>",
-        "format-low":       "<span color='grey'>\uF201 {usage}%</span>",
-        "tooltip": false,
-        "interval": 2,
-        "states": {
-            "critical": 80,
-            "high": 50,
-            "medium": 5,
-            "low": 0
-        }
-    },
-
-    "network": {
-        "format": "",
-        "format-ethernet": "\udb83\udc9d",
-        "format-wifi": "{icon}",
-        "format-disconnected": "\udb83\udc9c",
-        "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-        "tooltip-format-ethernet": "{ifname}",
-        "tooltip-format-disconnected": "Disconnected",
-    },
-
-    "bluetooth": {
-        "format": "\udb80\udcaf",
-        "format-disabled": "\udb80\udcb2",
-        "format-connected": "\udb80\udcb1",
-        "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
-    },
-
-    "hyprland/language": {
-        "format": "{short}"
-    },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 16
+    "icon-size": 10,
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
     }
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%d-%m-%Y}"
+  },
+  "hyprland/window": {
+    "format": " {}",
+    "max-length": 20,
+    "rewrite": {
+      ".* - Mozilla Firefox": "  Firefox",
+      ".* - Visual Studio Code": "  VS Code"
+    }
+  },
+  "wireplumber": {
+    "format": "󰕾 {volume}%",
+    "max-volume": 100,
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+  "battery": {
+    "bat": "BAT1",
+    "interval": 60,
+    "format": "{icon}  {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "backlight": {
+    "format": "󰃟  {percent}%"
+  },
+  "memory": {
+    "interval": 10,
+    "format": " {used:0.1f}GB",
+    "format-critical": "<span color='#c20821'><b> {used:0.1f}GB</b></span>",
+    "format-high": "<span color='#e03c52'> {used:0.1f}GB</span>",
+    "format-medium": " {used:0.1f}GB",
+    "format-low": " {used:0.1f}GB",
+    "tooltip": false,
+    "states": {
+      "critical": 90,
+      "high": 80,
+      "medium": 65,
+      "low": 0
+    }
+  },
+  "custom/app_launcher": {
+    "format": "󰀻",
+    "on-click": "rofi -show drun -show-icons",
+    "tooltip": false
+  },
+  "custom/power_menu": {
+    "format": "⏻",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+  "temperature": {
+    "format": "  {temperatureC}°C"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "format-critical": "<span color='#c20821'><b> {usage}%</b></span>",
+    "format-high": "<span color='#e03c52'> {usage}%</span>",
+    "format-medium": " {usage}%",
+    "format-low": " {usage}%",
+    "tooltip": false,
+    "interval": 2,
+    "states": {
+      "critical": 90,
+      "high": 80,
+      "medium": 60,
+      "low": 0
+    }
+  },
+  "network": {
+    "format": "",
+    "format-ethernet": "󰲝",
+    "format-wifi": "{icon}",
+    "format-disconnected": "󰲜",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  "hyprland/language": {
+    "format": "{short}"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 16
+  }
 }
