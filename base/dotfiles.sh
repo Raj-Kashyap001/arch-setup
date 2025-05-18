@@ -24,6 +24,12 @@ case $response in
 
     echo "Configuring dunst terminal"
     cp -rvf ../dunst/ $HOME/.config/
+
+    echo "Configuring fastfetch"
+    cp -rvf ../fastfetch/ $HOME/.config/
+    
+    echo "Configuring wlgout"
+    cp -rvf ../wlogout/ $HOME/.config/  
     ;;
   [nN]*)
     echo "Operation Cancelled By User!"
