@@ -17,7 +17,7 @@
     origin = bottom-right
     
     # Offset from the origin (right padding of 4px, up 20px for bar)
-    offset = (, 10)
+    offset = (10, 10)
     
     # Scale factor (auto-detected)
     scale = 0

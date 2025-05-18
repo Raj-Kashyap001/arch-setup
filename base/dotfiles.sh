@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 echo "Warning: This will override the current config files!"
 echo "Make sure to create a backup first"
 read -p "Proceed? (y/n): " response
@@ -9,9 +7,6 @@ read -p "Proceed? (y/n): " response
 case $response in
   [yY]*)
     echo "User chose yes."
-    echo "Configuring nvim"
-    git clone https://github.com/Raj-Kashyap001/raj-nvim.git $HOME/.config/nvim
-
     echo "Configuring rofi"
     cp -rvf ../rofi $HOME/.config/
 

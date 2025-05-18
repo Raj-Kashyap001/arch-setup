@@ -17,7 +17,7 @@ fi
 
 # Installing Essential Apps
 apps="wget git fish tmux kitty fzf zoxide ripgrep fastfetch kitty mission-center nvim clang unzip cmake nodejs npm python-pip vlc github-cli \
-	rofi font-manager sww hyprland krita grim dunst fastfetch obs-studio hyprpolkitagent wl-color-picker nwg-clipman nwg-look ttf-jetbrains-mono-nerd"
+	rofi-wayland thunar alsa-utils font-manager swww hyprland krita grim dunst fastfetch obs-studio hyprpolkitagent wl-color-picker nwg-clipman nwg-look ttf-jetbrains-mono-nerd"
 
 apps_aur="visual-studio-code-bin localsend-bin google-chrome \
           ocs-url normcap\
@@ -41,3 +41,13 @@ yay -Syu $apps_aur --noconfirm --cleanafter --needed
 
 # Setting up Dotfiles
 sh ./base/dotfiles.sh
+
+# Download wallpapers (Optional)
+read -p "Download wallpapers from repo? Y/n" responce 
+
+if $responce == "Y"; then
+  sh ./base/wallpapers.sh
+  echo "Wallpapers are saved in $HOME/Pictures/. You can apply with waypaper"
+fi
+
+
