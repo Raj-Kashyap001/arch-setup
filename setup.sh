@@ -16,7 +16,7 @@ else
 fi
 
 # Installing Essential Apps
-apps="wget git fish tmux kitty fzf zoxide ripgrep fastfetch kitty mission-center nvim clang unzip cmake nodejs npm python-pip vlc github-cli \
+apps="wget git fish tmux kitty fzf zoxide man ripgrep fastfetch kitty mission-center nvim clang unzip cmake nodejs npm python-pip vlc github-cli \
 	rofi-wayland thunar alsa-utils font-manager swww hyprland krita grim dunst fastfetch obs-studio hyprpolkitagent wl-color-picker nwg-clipman nwg-look ttf-jetbrains-mono-nerd"
 
 apps_aur="visual-studio-code-bin localsend-bin google-chrome \
