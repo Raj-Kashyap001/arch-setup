@@ -18,4 +18,4 @@ fi
 
 # Restart waybar to apply changes
 killall waybar
-waybar &>/dev/null
+waybar &>/dev/null &
