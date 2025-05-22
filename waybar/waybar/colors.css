@@ -1,7 +1,7 @@
-@define-color foreground #202124;
-@define-color foreground-inactive #5f6368;
+@define-color foreground #e8eaed;
+@define-color foreground-inactive #9aa0a6;
 @define-color background transparent;
-@define-color module-background #e8eaed;
-@define-color accent #1967d2;
-@define-color hover-background #dadce0;
-@define-color active-background #c9ccd1;
+@define-color module-background #292a2d;
+@define-color accent #8ab4f8;
+@define-color hover-background #35363a;
+@define-color active-background #3c4043;
