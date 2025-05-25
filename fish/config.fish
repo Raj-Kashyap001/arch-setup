@@ -18,7 +18,6 @@ alias code '/usr/bin/code --enable-features=UseOzonePlatform,WaylandWindowDecora
 # Path
 fish_add_path /home/raj/.local/bin/
 fish_add_path /opt/idea-IU-251.25410.109/bin/
-fish_add_path /opt/WebStorm-251.25410.117/bin/
 
 # Editor
 set -x EDITOR nvim
@@ -26,7 +25,7 @@ set -x GIT_EDITOR $EDITOR
 set -x SUDO_EDITOR "rvim -u NONE"
 set -x LIBVIRT_DEFAULT_URI "qemu:///system"
 set -x MOZ_ENABLE_WAYLAND 1
-
+set -x QT_QPA_PLATFORMTHEME "qt6ct"
 switch (uname)
 case Linux
     set -x OSTYPE "Linux"

@@ -30,6 +30,11 @@ case $response in
     
     echo "Configuring wlgout"
     cp -rvf ../wlogout/ $HOME/.config/  
+
+    echo "Configuring colors for Qt apps"
+    #TODO: create folder if not exist
+    cp -rvf ../qt/QT5-FluentDark.conf $HOME/.config/qt5ct/colors/FluentDark.conf
+    cp -rvf ../qt/QT6-FluentDark.conf $HOME/.local/share/qt6ct/colors/FluentDark.conf
     ;;
   [nN]*)
     echo "Operation Cancelled By User!"
