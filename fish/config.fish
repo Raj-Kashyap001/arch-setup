@@ -5,6 +5,7 @@ end
 # Colors for ls command
 set -gx LSCOLORS "Cxbgdxdxbxdgeghegeacad"
 
+source /home/raj/.profile
 
 # Aliases
 alias c clear
@@ -15,6 +16,7 @@ alias pacrm 'sudo pacman -Rs '
 alias rm 'rm -rvf'
 alias cp 'cp -rvf'
 alias code '/usr/bin/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto --unity-launch %F'
+
 # Path
 fish_add_path /home/raj/.local/bin/
 fish_add_path /opt/idea-IU-251.25410.109/bin/
@@ -25,7 +27,7 @@ set -x GIT_EDITOR $EDITOR
 set -x SUDO_EDITOR "rvim -u NONE"
 set -x LIBVIRT_DEFAULT_URI "qemu:///system"
 set -x MOZ_ENABLE_WAYLAND 1
-set -x QT_QPA_PLATFORMTHEME "qt6ct"
+
 switch (uname)
 case Linux
     set -x OSTYPE "Linux"
@@ -367,3 +369,13 @@ alias zi=__zoxide_zi
 # ~/.config/fish/config.fish):
 #
 #   zoxide init fish | source
+
+
+# Custom function to remove path
+function fish_remove_path
+  if set -l index (contains -i "$argv" $fish_user_paths)
+    set -e fish_user_paths[$index]
+    echo "Removed $argv from the path"
+  end
+end
+

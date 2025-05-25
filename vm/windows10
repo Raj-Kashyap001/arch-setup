@@ -1,0 +1,101 @@
+#!/bin/bash
+
+VM_NAME="Windows10"
+
+# Function to check if command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Function to cleanup - shutdown VM gracefully
+cleanup() {
+    echo "Received signal, shutting down VM gracefully..."
+    virsh shutdown "$VM_NAME" >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo "Shutdown signal sent to VM '$VM_NAME'"
+    else
+        echo "Failed to send shutdown signal to VM"
+    fi
+    exit 0
+}
+
+# Function to run everything in background
+run_vm_background() {
+    # Set up signal handlers for graceful shutdown
+    trap cleanup SIGINT SIGTERM
+    
+    # Start virt-viewer in background, suppress output
+    nohup virt-viewer "$VM_NAME" >/dev/null 2>&1 &
+    local viewer_pid=$!
+    
+    # Keep script running to monitor signals
+    while kill -0 $viewer_pid 2>/dev/null; do
+        sleep 1
+    done
+    
+    # If virt-viewer closes, shutdown VM
+    echo "Viewer closed, shutting down VM..."
+    virsh shutdown "$VM_NAME" >/dev/null 2>&1
+}
+
+# Check if virt-manager/libvirt tools are installed
+if ! command_exists virsh; then
+    echo "Error: virsh not found. Please install libvirt and virt-manager:"
+    echo "sudo pacman -S libvirt virt-manager"
+    exit 1
+fi
+
+if ! command_exists virt-viewer; then
+    echo "Error: virt-viewer not found. Please install virt-viewer:"
+    echo "sudo pacman -S virt-viewer"
+    exit 1
+fi
+
+# Check if libvirtd service is running
+if ! systemctl is-active --quiet libvirtd; then
+    echo "Error: libvirtd service is not running. Please start it:"
+    echo "sudo systemctl start libvirtd"
+    echo "sudo systemctl enable libvirtd"
+    exit 1
+fi
+
+# Check if VM exists
+if ! virsh list --all | grep -q "$VM_NAME"; then
+    echo "Error: VM '$VM_NAME' not found."
+    echo "Available VMs:"
+    virsh list --all
+    echo ""
+    echo "Please create the VM first using virt-manager or update VM_NAME in this script."
+    exit 1
+fi
+
+# Check if VM is already running
+if virsh list --state-running | grep -q "$VM_NAME"; then
+    echo "VM '$VM_NAME' is already running, opening viewer..."
+else
+    echo "Starting VM '$VM_NAME'..."
+    if virsh start "$VM_NAME" >/dev/null 2>&1; then
+        echo "VM started successfully, waiting for boot..."
+        sleep 5
+    else
+        echo "Error: Failed to start VM '$VM_NAME'"
+        echo "Check VM configuration or run: virsh start '$VM_NAME' manually for details"
+        exit 1
+    fi
+fi
+
+# Run everything in background and return control to terminal
+{
+    run_vm_background
+} &
+
+script_pid=$!
+echo "VM and viewer started in background!"
+echo "Script PID: $script_pid"
+echo "To stop VM gracefully: kill $script_pid"
+echo "To force kill: kill -9 $script_pid"
+
+# Exit immediately, leaving background process running
+exit 0
+
+

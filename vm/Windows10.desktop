@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Windows 10 VM
+Comment=Start Windows 10 Virtual Machine
+Exec=windows10
+Icon=/home/raj/.local/share/applications/windows10.png
+Terminal=false
+Categories=System;Emulator;
+Hidden=false
